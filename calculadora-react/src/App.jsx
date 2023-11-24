@@ -5,44 +5,30 @@ function App() {
   const [altura, setAltura] = useState('');
   const [peso, setPeso] = useState('');
   const [imc, setIMC] = useState(null);
+  const [classificacao,setClassificacao] = useState('')
 
   const calcularIMC = () => {
     const alturaMetros = altura / 100; 
     const imcCalculado = peso / (alturaMetros * alturaMetros);
     setIMC(imcCalculado.toFixed(2));
   };
-  
   const aprovaçãoPelaTabela = () => {
     if (imcCalculado <= 16,9) {
-      return (
-        <p>Muito abaixo do peso</p>
-      )
-    } else if(imcCalculado >= 17 && imc <=18,4) {
-      return (
-        <p>Abaixo do Peso</p>
-      )
-    } else if(imcCalculado >= 18,4 && imc <= 24,9) {
-      return (
-        <p>Peso normal</p>
-      )
-    } else if(imcCalculado >= 25 && 29,9) {
-      return (
-        <p>acima do peso</p>
-      )
-    } else if(imcCalculado >= 30 && imc <= 34,9) {
-      return (
-        <p>Obesidade Grau 1</p>
-      )
-    } else if(imcCalculado >= 35 && imc <= 40) {
-      return (
-        <p>Obesidade Grau 2</p>
-      ) 
-    } else if(imcCalculado >= 40) {
-      return (
-        <p>Obesidade Grau 3</p>
-      )
+      setClassificacao('Muito abaixo do peso')
+    } else if(imcCalculado >= 17 && imcCalculado <=18,4) {
+      setClassificacao('Abaixo do peso')
+    } else if(imcCalculado >= 18,4 && imcCalculado <= 24,9) {
+      setClassificacao('Peso Normal')
+    } else if(imcCalculado >= 25 && imcCalculado29,9) {
+      setClassificacao('Acima do peso')
+    } else if(imcCalculado >= 30 && imcCalculado <= 34,9) {
+      setClassificacao('Obesidade grau 1')
+    } else if(imcCalculado >= 35 && imcCalculado <= 40) {
+      setClassificacao('Obesidade grau 2')
+    } else  {
+      setClassificacao('obesidade grau 3')
     }
-  } 
+  }
 
   return (
     <div className='App'>
@@ -69,4 +55,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
