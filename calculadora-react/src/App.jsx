@@ -11,17 +11,19 @@ function App() {
     const alturaMetros = altura / 100; 
     const imcCalculado = peso / (alturaMetros * alturaMetros);
     setIMC(imcCalculado.toFixed(2));
+    aprovaçãoPelaTabela(imcCalculado);
   };
-  const aprovaçãoPelaTabela = () => {
-    if (imcCalculado <= 16,9) {
+
+  const aprovaçãoPelaTabela = (imcCalculado) => {
+    if (imcCalculado <= 16.9) {
       setClassificacao('Muito abaixo do peso')
-    } else if(imcCalculado >= 17 && imcCalculado <=18,4) {
+    } else if(imcCalculado >= 17 && imcCalculado <=18.4) {
       setClassificacao('Abaixo do peso')
-    } else if(imcCalculado >= 18,4 && imcCalculado <= 24,9) {
+    } else if(imcCalculado >= 18.4 && imcCalculado <= 24.9) {
       setClassificacao('Peso Normal')
-    } else if(imcCalculado >= 25 && imcCalculado29,9) {
+    } else if(imcCalculado >= 25 && imcCalculado <= 29.9) {
       setClassificacao('Acima do peso')
-    } else if(imcCalculado >= 30 && imcCalculado <= 34,9) {
+    } else if(imcCalculado >= 30 && imcCalculado <= 34.9) {
       setClassificacao('Obesidade grau 1')
     } else if(imcCalculado >= 35 && imcCalculado <= 40) {
       setClassificacao('Obesidade grau 2')
@@ -48,7 +50,7 @@ function App() {
         <div>
           <h2>Resultado:</h2>
           <p>IMC: {imc}</p>
-          <p>Classificação : {aprovaçãoPelaTabela} </p>
+          <p>Classificação : {classificacao} </p>
         </div>
       )}
     </div>
